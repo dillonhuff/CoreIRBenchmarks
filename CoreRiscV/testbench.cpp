@@ -81,28 +81,28 @@ void processTop(const std::string& fileName,
 
   cout << "Saved to file" << endl;
 
-  SimulatorState state(topMod);
-  state.setMainClock("self.clk");
+  // SimulatorState state(topMod);
+  // state.setMainClock("self.clk");
 
-  cout << "Got simulator state for top module" << endl;
+  // cout << "Got simulator state for top module" << endl;
 
-  state.setClock("self.clk", 0, 1);
+  // state.setClock("self.clk", 0, 1);
 
-  state.setClock("self.pcpi_wr", 0, 0);
+  // state.setClock("self.pcpi_wr", 0, 0);
 
-  state.setValue("self.irq", BitVec(32, 0));
-  state.setValue("self.mem_rdata", BitVec(32, 0));
-  state.setValue("self.mem_ready", BitVec(1, 0));
+  // state.setValue("self.irq", BitVec(32, 0));
+  // state.setValue("self.mem_rdata", BitVec(32, 0));
+  // state.setValue("self.mem_ready", BitVec(1, 0));
 
-  state.setValue("self.pcpi_rd", BitVec(32, 0));
-  state.setValue("self.pcpi_ready", BitVec(1, 0));
-  state.setValue("self.pcpi_wait", BitVec(1, 0));
-  state.setValue("self.resetn", BitVec(1, 0));
+  // state.setValue("self.pcpi_rd", BitVec(32, 0));
+  // state.setValue("self.pcpi_ready", BitVec(1, 0));
+  // state.setValue("self.pcpi_wait", BitVec(1, 0));
+  // state.setValue("self.resetn", BitVec(1, 0));
   
-  cout << "Executing core" << endl;
+  // cout << "Executing core" << endl;
 
-  state.execute();
-  state.execute();
+  // state.execute();
+  // state.execute();
   
   deleteContext(c);
 }
@@ -281,11 +281,8 @@ void simulateState(const std::string& fileName,
 int main() {
   string fileName = "picorv32.json";
 
-  //"__DOLLAR__paramod__DOLLAR__4d2dfdcc1db1a7362453fb449ccdda75bb1b39f9__BACKSLASH__picorv32.json";
   string topMod = "picorv32";
 
-  //"__DOLLAR__paramod__DOLLAR__4d2dfdcc1db1a7362453fb449ccdda75bb1b39f9__BACKSLASH__picorv32";
-  //processTop(fileName, topMod);
-
+  processTop(fileName, topMod);
   simulateState("risc5Only.json", topMod);
 }
