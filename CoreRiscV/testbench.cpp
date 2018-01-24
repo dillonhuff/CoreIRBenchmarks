@@ -283,6 +283,6 @@ int main() {
 
   string topMod = "picorv32";
 
-  processTop(fileName, topMod);
+  //processTop(fileName, topMod);
   simulateState("risc5Only.json", topMod);
 }
